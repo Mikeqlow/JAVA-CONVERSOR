@@ -100,48 +100,52 @@ public class ConversorDeMonedas {
 	}
 	
 	public void Convertir() {
+		if(Validar(texto.getText())) {
+			Moneda moneda = (Moneda)cmb.getSelectedItem();
+			switch (moneda) {
+			case soles_dolar: 
+				solesAMoneda(dolar);
+				break;
+			case soles_dolarCanadiense: 
+				solesAMoneda(dolarCanadiense);
+				break;
+			case soles_euros: 
+				solesAMoneda(euros);
+				break;
+			case soles_librasEsterlinas: 
+				solesAMoneda(librasEsterlinas);
+				break;
+			case soles_wonSurCoreano: 
+				solesAMoneda(wonSurCoreano);
+				break;
+			case soles_yenJapones: 
+				solesAMoneda(yenJapones);
+				break;
+			//Ahora en viceversa
+			case dolar_soles: 
+				monedaASoles(dolar);
+				break;
+			case dolarCanadiense_soles: 
+				monedaASoles(dolarCanadiense);
+				break;
+			case euros_soles: 
+				monedaASoles(euros);
+				break;
+			case librasEsterlinas_soles: 
+				monedaASoles(librasEsterlinas);
+				break;
+			case wonSurCoreano_soles: 
+				monedaASoles(wonSurCoreano);
+				break;
+			case yenJapones_soles: 
+				monedaASoles(yenJapones);
+				break;
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + moneda);
+			
+			}
 		
-		Moneda moneda = (Moneda)cmb.getSelectedItem();
-		switch (moneda) {
-		case soles_dolar: 
-			solesAMoneda(dolar);
-			break;
-		case soles_dolarCanadiense: 
-			solesAMoneda(dolarCanadiense);
-			break;
-		case soles_euros: 
-			solesAMoneda(euros);
-			break;
-		case soles_librasEsterlinas: 
-			solesAMoneda(librasEsterlinas);
-			break;
-		case soles_wonSurCoreano: 
-			solesAMoneda(wonSurCoreano);
-			break;
-		case soles_yenJapones: 
-			solesAMoneda(yenJapones);
-			break;
-		//Ahora en viceversa
-		case dolar_soles: 
-			monedaASoles(dolar);
-			break;
-		/*case dolarCanadiense_soles: 
-			monedaASoles();
-			break;
-		case euros_soles: 
-			monedaASoles();
-			break;
-		case librasEsterlinas_soles: 
-			monedaASoles();
-			break;
-		case wonSurCoreano_soles: 
-			monedaASoles();
-			break;
-		case yenJapones_soles: 
-			monedaASoles();
-			break;*/
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + moneda);
+		
 		}
 	}
 	
