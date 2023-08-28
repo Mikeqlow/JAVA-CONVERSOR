@@ -13,10 +13,35 @@ public class ConversorDeMonedas {
 	private JButton btn;
 	private JComboBox cmb;
 	private JLabel lbl;
+	
+	public enum Moneda {
+		soles_dolar,
+		soles_dolarCanadiense,
+		soles_euros,
+		soles_librasEsterlinas,
+		soles_yenJapones,
+		soles_wonSurCoreano,
+		dolar_soles,
+		dolarCanadiense_soles,
+		euros_soles,
+		librasEsterlinas_soles,
+		yenJapones_soles,
+		wonSurCoreano_soles,
+		
+	}
+	
+	public double dolar = 3.70;
+	public double dolarCanadiense = 2.72;
+	public double euros = 4.00;
+	public double librasEsterlinas = 4.66;
+	public double yenJapones = 0.025;
+	public double wonSurCoreano = 0.0028;
+	
+	public double valorInput = 0.00;
+	
+	
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,16 +55,12 @@ public class ConversorDeMonedas {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public ConversorDeMonedas() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
