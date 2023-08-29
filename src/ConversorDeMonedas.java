@@ -10,6 +10,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
 
 public class ConversorDeMonedas {
 
@@ -68,34 +71,39 @@ public class ConversorDeMonedas {
 	
 	private void initialize() {
 		frmConversor = new JFrame();
+		frmConversor.getContentPane().setBackground(new Color(64, 128, 128));
 		frmConversor.setTitle("Conversor de Monedas");
 		frmConversor.setBounds(100, 100, 450, 300);
 		frmConversor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConversor.getContentPane().setLayout(null);
 		
 		texto = new JTextField();
-		texto.setBounds(10, 10, 96, 19);
+		texto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		texto.setBounds(117, 87, 96, 19);
 		frmConversor.getContentPane().add(texto);
 		texto.setColumns(10);
 		
 		cmb = new JComboBox<Moneda>();
+		cmb.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		cmb.setModel(new DefaultComboBoxModel<>(Moneda.values()));
-		cmb.setBounds(10, 61, 125, 21);
+		cmb.setBounds(57, 150, 178, 21);
 		frmConversor.getContentPane().add(cmb);
 		
 		//Acción con el botón.
 		btn = new JButton("Convertir");
+		btn.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Convertir();
 			}
 		});
-		btn.setBounds(162, 61, 125, 21);
+		btn.setBounds(245, 150, 125, 21);
 		frmConversor.getContentPane().add(btn);
 		
 		lbl = new JLabel("00.00");
-		lbl.setBounds(116, 10, 85, 19);
+		lbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbl.setBounds(223, 87, 85, 19);
 		frmConversor.getContentPane().add(lbl);
 	}
 	
